@@ -60,4 +60,16 @@ var wordGuessGame ={
     }
   },
 
+  // Variables setting initial state of game
+  wordInPlay: null,
+  lettersOfTheWord: [],
+  matchedLetters:[],
+  guessedLetters:[],
+  guessesLeft: 0,
+  totalGuesses: 0,
+  letterGuessed: null,
+  wins: 0,
+
+  //setupGame method is called on when page 1st loads
+
 }
