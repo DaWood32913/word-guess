@@ -71,5 +71,19 @@ var wordGuessGame ={
   wins: 0,
 
   //setupGame method is called on when page 1st loads
+  setupGame: function() {
+      //Here we pick random words
+      var objKeys = Object.keys(this.wordsToPick);
+      this.wordInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
+
+      //split up chosen words into dashes
+      this.lettersOfTheWord = this.wordInPlay.split("");
+      
+      //Builds the blank word into dashes that haven't been guessed yet
+      this.rebuildWordView();
+
+      //this function sets the number of guesses remaining for user and renders to html
+      this.processUpdateTotalGuesses();
+  },
 
 }
