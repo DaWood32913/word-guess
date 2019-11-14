@@ -93,6 +93,20 @@ var wordGuessGame ={
     if (this.guessesLeft === 0) {
         this.restartGame();
     }
+
+    //otherwise
+    else {
+
+        //handles incorrect guesses
+        this.updateGuesses(letter);
+
+        //handles correct guesses
+        this.updateMatchedLetters(letter);
+
+        //Rebuild the view of the word. Guessed letters are revealed, non-guessed letters have a "_".
+      this.rebuildWordView();
+
+    }
   }
 
-},
+}
