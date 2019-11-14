@@ -104,9 +104,31 @@ var wordGuessGame ={
         this.updateMatchedLetters(letter);
 
         //Rebuild the view of the word. Guessed letters are revealed, non-guessed letters have a "_".
-      this.rebuildWordView();
+        this.rebuildWordView();
 
+        //If user wins, restart game
+        if (this.updateWins() === true) {
+            this.restartGame();
+        }
+     }
+  },
+
+  //This function dictates what happens when the user makes a new incorrect guess
+  updateGuesses: function(letter) {
+    
+    //if letter is not in the guessedLetters array, and the letter is not in the lettersOfTheWord array
+    if ((this.guessedLetters.indexOf(letter) === -1) && (this.lettersOfTheWord.indexOf(letter) ===-1)){
+
+        //Add the letter to the guessedLetters array
+        this.guessedLetters.push(letter);
+
+        //Decrease guesses by 1.
+        this.guessesLeft--;
+
+        //updates guesses remaining and guesses letters on the page.
+        document.querySelector("#guesses-remaining").innerHTML = this.guessesLeft;
+        document.querySelector("#guessed-letters").innerHTML = this.guessedLetters.join(", ");
     }
-  }
+  },
 
 }
