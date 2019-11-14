@@ -86,4 +86,13 @@ var wordGuessGame ={
       this.processUpdateTotalGuesses();
   },
 
-}
+  //Function that updates page when a letter is guessed
+  updatePage: function(letter) {
+
+    //if user has no remaining guesses, the game restarts
+    if (this.guessesLeft === 0) {
+        this.restartGame();
+    }
+  }
+
+},
