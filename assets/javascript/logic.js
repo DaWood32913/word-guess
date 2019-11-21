@@ -131,4 +131,26 @@ var wordGuessGame ={
     }
   },
 
+  //This function sets the initial guesses the user gets
+  processUpdateTotalGuesses: function() {
+    //The user will get 5 more guesses than are letters to guess
+    this.totalGuesses = this.lettersOfTheWord.length + 5;
+    this.guessesLeft = this.totalGuesses;
+
+    //Render the guesses left to page.
+    document.querySelector("#guesses-remaining").innerHTML = this.guessesLeft;
+  },
+
+  // This function governs what happens when user makes a correct guess
+  updateMatchedLetters: function(letter) {
+    //Loop through letters of the solution
+    for (var i = 0; i < this.lettersOfTheWord.length; i++) {
+       // If the guessed letter is in the solution, and we haven't guessed it already..
+       if ((letter === this.lettersOfTheWord[i]) && (this.matchedLetters.indexOf(letter) === -1)) {
+        // Push the newly guessed letter into the matchedLetters array.
+        this.matchedLetters.push(letter);
+      }
+    }
+  },
+
 }
